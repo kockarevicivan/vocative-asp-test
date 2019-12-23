@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Documentation";
+}
+
+@section AccountLink{
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="@Url.Action("Login", "Account")">Sign in</a></li>
+    }
+}
+
+<!-- Service -->
+<div class="bg-color-sky-light" data-auto-height="true">
+    <div class="content-lg container">
+
+        <div class="row row-space-1 margin-b-2">
+            <div class="col-sm-4 sm-margin-b-2">
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                    <div class="service" data-height="height">
+                        <div class="service-element">
+                            <i class="service-icon icon-speedometer"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Adjustuble</h3>
+                            <p class="margin-b-5">You can adjust the amount of names to your needs.</p>
+                        </div>
+                        <a href="#" class="content-wrapper-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 sm-margin-b-2">
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".2s">
+                    <div class="service" data-height="height">
+                        <div class="service-element">
+                            <i class="service-icon icon-user"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>More personal</h3>
+                            <p class="margin-b-5">We make your applications sound more personal.</p>
+                        </div>
+                        <a href="#" class="content-wrapper-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".1s">
+                    <div class="service" data-height="height">
+                        <div class="service-element">
+                            <i class="service-icon icon-badge"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Human supervised</h3>
+                            <p class="margin-b-5">We review every single name that we guarantee for.</p>
+                        </div>
+                        <a href="#" class="content-wrapper-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// end row -->
+
+    </div>
+</div>
+<!-- End Service -->

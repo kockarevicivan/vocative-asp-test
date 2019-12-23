@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@section AccountLink{
+    <li class="nav-item"><a class="nav-item-child nav-item-hover" href="@Url.Action("Register", "Account")">Register</a></li>
+}
+
+<!--========== PAGE LAYOUT ==========-->
+<!-- Service -->
+<div class="bg-color-sky-light" data-auto-height="true">
+    <div class="content-lg container">
+
+        <div class="row row-space-1 margin-b-2 register-login-container">
+            <form method="POST" action="/Account/Login" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 register-login-child-left">
+                <h2>Sign in</h2>
+                <input name="Email" type="email" class="form-control footer-input margin-b-20 bg-color-white" placeholder="Email" required>
+                <input name="Password" type="password" class="form-control footer-input margin-b-20 bg-color-white" placeholder="Password" required>
+
+                <label>
+                    <input name="RememberMe" type="checkbox" /> Remember me
+                </label>
+
+                <button type="submit" class="btn-theme btn-theme-sm btn-base-bg text-uppercase">Submit</button>
+                <a class="forgot-password" href="@Url.Action("ForgotPassword", "Account")">Forgot password?</a>
+            </form>
+        </div>
+        <!--// end row -->
+
+    </div>
+</div>
+<!-- End Service -->
+<!--========== END PAGE LAYOUT ==========-->

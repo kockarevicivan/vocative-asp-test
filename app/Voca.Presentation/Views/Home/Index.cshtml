@@ -1,0 +1,201 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+@section AccountLink{
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item"><a class="nav-item-child nav-item-hover" href="@Url.Action("Login", "Account")">Sign in</a></li>
+    }
+}
+
+<!--========== PAGE LAYOUT ==========-->
+<!-- Slider -->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <div class="container">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        </ol>
+    </div>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" style="background-image: url('../../assets/images/1920x1080/01.jpg'); background-size: cover;" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-centered">
+                    <div class="margin-b-40">
+                        <h1 class="carousel-title">Voca API</h1>
+                        <p>Need to change your clients name to vocative? -We got your back! <br /> Retrieve your clients name in all cases from our API.</p>
+                    </div>
+                    <a href="@Url.Action("Index", "Documentation")" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Get started</a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="carousel-centered">
+                    <div class="margin-b-40">
+                        <h2 class="carousel-title">More personal</h2>
+                        <p>If you are sending notifications with clients name, it's important to sound personal! <br /> Try Voca API to change your clients name to vocative!</p>
+                    </div>
+                    <a href="@Url.Action("Index", "Documentation")" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Documentation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Slider -->
+<!-- Service -->
+<div class="bg-color-sky-light" data-auto-height="true">
+    <div class="content-lg container">
+
+        <div class="row row-space-1 margin-b-2">
+            <div class="col-sm-4 sm-margin-b-2">
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".3s">
+                    <div class="service" data-height="height">
+                        <div class="service-element">
+                            <i class="service-icon icon-speedometer"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Adjustuble</h3>
+                            <p class="margin-b-5">You can adjust the amount of names to your needs.</p>
+                        </div>
+                        <a href="#" class="content-wrapper-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 sm-margin-b-2">
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".2s">
+                    <div class="service" data-height="height">
+                        <div class="service-element">
+                            <i class="service-icon icon-user"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>More personal</h3>
+                            <p class="margin-b-5">We make your applications sound more personal.</p>
+                        </div>
+                        <a href="#" class="content-wrapper-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="wow fadeInLeft" data-wow-duration=".3" data-wow-delay=".1s">
+                    <div class="service" data-height="height">
+                        <div class="service-element">
+                            <i class="service-icon icon-badge"></i>
+                        </div>
+                        <div class="service-info">
+                            <h3>Human supervised</h3>
+                            <p class="margin-b-5">We review every single name that we guarantee for.</p>
+                        </div>
+                        <a href="#" class="content-wrapper-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// end row -->
+
+    </div>
+</div>
+<!-- End Service -->
+<!-- Clients -->
+<div class="bg-color-white">
+    <div class="content-lg container">
+        <!-- Swiper Clients -->
+        <div class="swiper-slider swiper-clients">
+            <!-- Swiper Wrapper -->
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img class="swiper-clients-img" src="~/assets/images/clients/01.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-clients-img" src="~/assets/images/clients/02.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-clients-img" src="~/assets/images/clients/03.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-clients-img" src="~/assets/images/clients/04.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-clients-img" src="~/assets/images/clients/05.png" />
+                </div>
+                <div class="swiper-slide">
+                    <img class="swiper-clients-img" src="~/assets/images/clients/06.png" />
+                </div>
+            </div>
+            <!-- End Swiper Wrapper -->
+        </div>
+        <!-- End Swiper Clients -->
+    </div>
+</div>
+<!-- End Clients -->
+<!-- Pricing -->
+<div class="bg-color-sky-light">
+    <div class="content-lg container">
+        <div class="row row-space-1">
+            <div class="col-sm-4 sm-margin-b-2">
+                <!-- Pricing -->
+                <div class="pricing">
+                    <div class="margin-b-30">
+                        <i class="pricing-icon icon-chemistry"></i>
+                        <h3>Starter <span> - $</span> 1.99</h3>
+                        <p>Take this one if you have a small product, or just want to try out the API.<br /><br /></p>
+                    </div>
+                    <ul class="list-unstyled pricing-list margin-b-50">
+                        <li class="pricing-list-item">100 name credits</li>
+                        <li class="pricing-list-item negative">No customer support</li>
+                    </ul>
+                    <a href="pricing.html" class="btn-theme btn-theme-sm btn-default-bg text-uppercase">Choose</a>
+                </div>
+                <!-- End Pricing -->
+            </div>
+            <div class="col-sm-4 sm-margin-b-2">
+                <!-- Pricing -->
+                <div class="pricing pricing-active">
+                    <div class="margin-b-30">
+                        <i class="pricing-icon icon-graduation"></i>
+                        <h3>Professional <span> - $</span> 10.99</h3>
+                        <p>Take this one if you have a large application with a lot of users.<br /><br /></p>
+                    </div>
+                    <ul class="list-unstyled pricing-list margin-b-50">
+                        <li class="pricing-list-item">1,000 name credits</li>
+                        <li class="pricing-list-item">Customer support</li>
+                    </ul>
+                    <a href="pricing.html" class="btn-theme btn-theme-sm btn-default-bg text-uppercase">Choose</a>
+                </div>
+                <!-- End Pricing -->
+            </div>
+            <div class="col-sm-4">
+                <!-- Pricing -->
+                <div class="pricing">
+                    <div class="margin-b-30">
+                        <i class="pricing-icon icon-badge"></i>
+                        <h3>Premium <span> - $</span> 99.99</h3>
+                        <p>Take this one if you have an extremly large system, or just want to meet your needs for next couple of months.</p>
+                    </div>
+                    <ul class="list-unstyled pricing-list margin-b-50">
+                        <li class="pricing-list-item">10,000 name credits</li>
+                        <li class="pricing-list-item">Customer support</li>
+                    </ul>
+                    <a href="pricing.html" class="btn-theme btn-theme-sm btn-default-bg text-uppercase">Choose</a>
+                </div>
+                <!-- End Pricing -->
+            </div>
+        </div>
+        <!--// end row -->
+    </div>
+</div>
+<!-- End Pricing -->
+<!--========== END PAGE LAYOUT ==========-->
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.carousel-inner').css('height', $(window).height() + 'px');
+        });
+    </script>
+}

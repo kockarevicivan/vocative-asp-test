@@ -1,0 +1,110 @@
+﻿@model Voca.Presentation.Models.ProfileViewmodel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<!--========== PAGE LAYOUT ==========-->
+<!-- Service -->
+<div class="bg-color-sky-light" data-auto-height="true">
+    <div class="content-lg container">
+
+        <div class="upper-wrapper">
+            <h2 class="left">Profile</h2>
+            <a id="new-client-btn" class="btn" href="javascript:;">Create new client</a>
+        </div>
+
+        @if (!Model.UserVerified)
+        {
+            <p>You must verify your e-mail address in order to use Voca API.</p>
+        }
+        else if (Model.UserClients.Count() == 0)
+        {
+            <p>You don't have any clients yet.</p>
+        }
+        else
+        {
+            foreach (var c in Model.UserClients)
+            {
+                <div class="client" data-client-id="@c.Id" style="border: 1px solid #000;">
+                    <h3>@c.Name</h3>
+
+                    <div class="key-wrapper" data-client-key="@c.ApiKey">
+                        <h4>API Key: <span>@c.ApiKey</span></h4>
+                        <a class="reset-key-btn btn small" href="javascript:;">Reset</a>
+                        <a class="copy-btn btn small" href="javascript:;">Copy to clipboard</a>
+                    </div>
+                    <div>
+                        <a class="edit-client-btn btn" href="javascript:;">Edit</a>
+                        <a class="delete-client-btn btn" href="javascript:;">Delete</a>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+<!-- End Service -->
+<!--========== END PAGE LAYOUT ==========-->
+@*New client*@
+<form class="new-client-form dialog full-center" action="/Profile/CreateClient" method="POST">
+    <div class="section">
+        <h3>Create a new client</h3>
+    </div>
+    <div class="section">
+        <input name="clientName" type="text" placeholder="Client name..." />
+    </div>
+    <div class="section">
+        <label>
+            Buy for <input name="numberOfMonths" type="number" value="1" min="1" /> months. (3.89€ / month)
+        </label>
+    </div>
+    <div class="section">
+        <button class="btn" id="stripe-button">
+            Checkout <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+    </div>
+</form>
+
+@*Edit client name*@
+<div class="change-client-name-form dialog full-center">
+    <div class="section">
+        <h3>Change e-mail</h3>
+    </div>
+    <div class="section">
+        <input class="client-id-field" type="hidden" value="" />
+        <input class="client-name-field" type="text" value="" placeholder="Your e-mail..." />
+    </div>
+    <div class="section">
+        <button class="btn-ok btn">Save</button>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="~/assets/scripts/profile.js"></script>
+    <script>
+        var amountInCents = 389;
+
+        $('input[name="numberOfMonths"]').on('change', function () {
+            amountInCents = 100 * 3.89 * $(this).val();
+        });
+
+        $('#stripe-button').click(function () {
+            StripeCheckout.open({
+                key: '@ViewBag.PaymentPublishableKey',
+                amount: amountInCents,
+                description: 'Client creation',
+                locale: 'auto',
+                currency: 'eur',
+                token: function (res) {
+                    var $id = $('<input type=hidden name=stripeToken />').val(res.id);
+                    var $email = $('<input type=hidden name=stripeEmail />').val(res.email);
+                    $('.new-client-form').append($id).append($email).submit();
+                }
+            });
+
+            return false;
+        });
+    </script>
+}
